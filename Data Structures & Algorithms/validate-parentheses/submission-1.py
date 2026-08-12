@@ -1,0 +1,28 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        stack = []
+        pares = {
+            ")":"(",
+            "}":"{",
+            "]":"[",
+        }
+
+        for c in s:
+            if c in pares:
+                if stack and stack[-1] == pares[c]:
+                    stack.pop()
+                else:
+                    return False
+            else: 
+                stack.append(c)
+
+        return True if not stack else False
+
+        # time complexity: O(n)
+        # space/memory: O(n) 
+
+
+
+        
+        
